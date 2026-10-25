@@ -1,0 +1,21 @@
+# Python
+__pycache__/
+*.py[cod]
+.pytest_cache/
+.venv/
+venv/
+
+# Credentials and local environment
+.env
+.env.*
+!.env.example
+kaggle.json
+
+# Downloaded and generated datasets
+/data/raw/*
+!/data/raw/README.md
+/data/processed/*
+!/data/processed/README.md
+
+# Notebook checkpoints
+.ipynb_checkpoints/
