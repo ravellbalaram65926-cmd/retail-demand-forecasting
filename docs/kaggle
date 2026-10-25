@@ -1,0 +1,42 @@
+# Kaggle access from GitHub Codespaces
+
+The M5 Forecasting Accuracy competition requires a Kaggle account and acceptance
+of its competition rules. Kaggle credentials are private and must not be stored
+in this repository, a notebook, or a committed `.env` file.
+
+## Configure Codespaces secrets
+
+1. Sign in to Kaggle and accept the rules on the M5 Forecasting Accuracy
+	competition page.
+2. In GitHub, open this repository's **Settings** and select **Secrets and
+	variables > Codespaces**.
+3. Add repository secrets named `KAGGLE_USERNAME` and `KAGGLE_KEY`, using your
+	Kaggle username and API key as their values. Do not paste either value into
+	a notebook or chat.
+4. Restart or rebuild an existing Codespace so the new secrets are available
+	as environment variables.
+5. Verify that the environment variables exist without printing their values:
+
+	```bash
+	python -c 'import os; print(bool(os.getenv("KAGGLE_USERNAME")), bool(os.getenv("KAGGLE_KEY")))'
+	```
+
+	Both results should be `True`.
+
+## Download and run
+
+From the repository root, run:
+
+```bash
+python -m src.data_ingestion
+python -m src.train
+```
+
+KaggleHub downloads the competition files and the pipeline copies the original
+files into `data/raw/`. Aggregated data and predictions are written to
+`data/processed/`; evaluation metrics are written to `data/gold/`. These source
+and generated data files are not committed to Git.
+
+If authentication or download fails, confirm that the secrets are available
+inside the Codespace and that the competition rules were accepted. If an API
+key was ever committed or shared, revoke it in Kaggle and create a replacement.

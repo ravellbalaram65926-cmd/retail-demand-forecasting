@@ -19,6 +19,8 @@ secrets. KaggleHub reads these environment variables automatically. Never put
 credentials in this repository or in the notebook. Locally, set the same
 variables in your shell before running the pipeline.
 
+See [docs/kaggle](docs/kaggle) for step-by-step Codespaces secret setup.
+
 The download step can also use files already placed in `data/raw/`:
 `sales_train_validation.csv` and `calendar.csv`.
 
